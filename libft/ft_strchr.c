@@ -6,24 +6,23 @@ na string apontada por s.
 Ela retorna a posição do charactere na string
 ou NULL se o character nao for encontrado. */
 
+
 #include "libft.h"
 
-char *ft_strchr(const *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    int     i;
-    int     len;
-    char    *scpy;
+	int		i;
+	char	ch;
 
-    scpy = (char *)s;
-    i = 0;
-    len = ft_strlen(scpy);
-    if (c == '\0')
-        return (&scpy[len]);
-    while (scpy[i] != '\0')
-    {
-        if (scpy[i] != '\0')
-            return(&scpy[i]);
-            i++;
-    }
-    return (0);
+	ch = (unsigned char)c;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == ch)
+			return ((char *)(&s[i]));
+		i++;
+	}
+	if (ch == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
 }
