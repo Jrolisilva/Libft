@@ -2,6 +2,7 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 // Functions part 1
 
