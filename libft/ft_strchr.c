@@ -5,8 +5,6 @@ na string apontada por s.
 \0 é considerado parte da string
 Ela retorna a posição do charactere na string
 ou NULL se o character nao for encontrado. */
-
-
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)

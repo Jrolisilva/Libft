@@ -8,22 +8,19 @@ ou NULL se o character nao for encontrado. */
 
 #include "libft.h"
 
-char    *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    int i;
-    int len;
-    char    *scpy;
+	int		len;
+	char	ch;
 
-    scpy = (char *)s;
-    len = ft_strlen(scpy);
-    i = len - 1;
-    if (c == '\0')
-        return (&scpy[len]);
-    while (i >= 0)
-    {
-        if (scpy[i] == c)
-            return(&scpy[i]);
-        i--;
-    }   
-    return (0);
+	ch = (unsigned char)c;
+	len = ft_strlen((char *)s);
+	if (ch == '\0')
+		return ((char *)(&s[len]));
+	while (--len >= 0)
+	{
+		if (s[len] == ch)
+			return ((char *)(&s[len]));
+	}
+	return (NULL);
 }

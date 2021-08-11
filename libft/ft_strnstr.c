@@ -9,30 +9,24 @@ Se encontrado needle em haystack a função retorna o ponteiro da primeira occor
 
 #include "libft.h"
 
-char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    size_t  i;
-    size_t  j;
-    char    *hay;
-    char    *need;
+	size_t	i;
+	size_t	c;
 
-    hay = (char *)haystack;
-    need = (char *)needle;
-    if (need[0] == '\0')
-        return (hay);
-    i = 0;
-    while (hay[i] != '\0')
-    {
-        j = 0;
-        if (hay[i] == need[i])
-        {
-            while (hay[i + j] == need [j] &&
-                            (j + i) < len && need[j] != '\0')
-                            j++;
-                    if (need[j] == '\0')
-                        return (&hay[i]);
-        }
-        i++;
-    }
-    return (0);
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	i = 0;
+	while (haystack[i] != '\0' && i < len)
+	{
+		c = 0;
+		while ((haystack[i + c] == needle[c]) && (i + c) < len)
+		{
+			if (needle[c + 1] == '\0')
+				return ((char *)(&haystack[i]));
+			c++;
+		}
+		i++;
+	}
+	return (NULL);
 }
